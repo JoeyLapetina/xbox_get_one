@@ -10,14 +10,14 @@ class CheckersController < ApplicationController
     @checkers.each do |checker|
       old_status = checker.item_status
       doc = Nokogiri::HTML(open(checker.url))
-      if doc.at_css(checker.positive_selector).text
+      if doc.at_css(checker.positive_selector)
         doc.at_css(checker.positive_selector).text
         unless old_status == true
           UserMailer.xbox_is_at(User.first, @checker).deliver
           checker.item_status = true
         end
       else
-        UserMailer.xbox_out_at(User.first, @checker).deliver
+        UserMailer.xbox_out_at(User.first, checker).deliver
         checker.item_status = false
       end
       checker.save
