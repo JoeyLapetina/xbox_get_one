@@ -17,7 +17,7 @@ class CheckersController < ApplicationController
   # GET /checkers/1.json
   def show
     @checker = Checker.find(params[:id])
-    UserMailer.xbox_is_at(User.first, @checker).deliver
+    #UserMailer.xbox_is_at(User.first, @checker).deliver
 
     respond_to do |format|
       format.html # show.html.erb
