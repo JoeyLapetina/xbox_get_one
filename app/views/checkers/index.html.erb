@@ -7,7 +7,8 @@
     <th>Url</th>
     <th>Item</th>
     <th>They have it?</th>
-    <th>They done have it?</th>
+    <th>They dont have it?</th>
+    <th>item_status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -22,6 +23,7 @@
     <td><%= checker.item %></td>
     <th><%= doc.at_css(checker.positive_selector).text if doc.at_css(checker.positive_selector) %></th>
     <th><%= doc.at_css(checker.negative_selector).text if  doc.at_css(checker.negative_selector).text %></th>
+    <td><%= checker.item_status %></td>
     <td><%= link_to 'Show', checker %></td>
     <td><%= link_to 'Edit', edit_checker_path(checker) %></td>
     <td><%= link_to 'Destroy', checker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -41,7 +43,7 @@
         
           url: '/checkers'
       })
-    }, 100000);
+    }, 60000);
 
   </script>
 </div>

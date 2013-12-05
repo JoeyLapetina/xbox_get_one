@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131205044250) do
+ActiveRecord::Schema.define(:version => 20131205081526) do
 
   create_table "checkers", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20131205044250) do
     t.string   "positive_response"
     t.string   "negative_response"
     t.string   "negative_selector"
+    t.boolean  "item_status"
   end
 
   create_table "users", :force => true do |t|
