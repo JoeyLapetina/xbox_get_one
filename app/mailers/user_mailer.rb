@@ -1,7 +1,5 @@
 class UserMailer < ActionMailer::Base
   default from: "TheWildScrape@gmail.com"
-
-  default :from => "ryan@railscasts.com"
   
   def xbox_is_at(user, checker)
     @user = user
