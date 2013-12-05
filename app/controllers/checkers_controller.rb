@@ -17,8 +17,10 @@ class CheckersController < ApplicationController
           checker.item_status = true
         end
       else
-        UserMailer.xbox_out_at(User.first, checker).deliver
-        checker.item_status = false
+        unless old_status == false
+          UserMailer.xbox_out_at(User.first, checker).deliver
+          checker.item_status = false
+        end
       end
       checker.save
     end
