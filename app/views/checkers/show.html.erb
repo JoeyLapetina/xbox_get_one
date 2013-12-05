@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @checker.name %>
+</p>
+
+<p>
+  <b>Site:</b>
+  <%= @checker.site %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @checker.url %>
+</p>
+
+<p>
+  <b>Item:</b>
+  <%= @checker.item %>
+</p>
+
+<p>
+  <b>Positive Selector:</b>
+  <%= @checker.positive_selector %>
+</p>
+
+<p>
+  <b>Positive Response:</b>
+  <%= @checker.positive_response %>
+</p>
+
+<p>
+  <b>Negative Selector:</b>
+  <%= @checker.negative_selector %>
+</p>
+
+<p>
+  <b>Negative Response:</b>
+  <%= @checker.negative_response %>
+</p>
+
+
+<%= link_to 'Edit', edit_checker_path(@checker) %> |
+<%= link_to 'Back', checkers_path %>

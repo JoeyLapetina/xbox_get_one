@@ -1,0 +1,47 @@
+<h1>Listing checkers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Site</th>
+    <th>Url</th>
+    <th>Item</th>
+    <th>They have it?</th>
+    <th>They done have it?</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @checkers.each do |checker| %>
+  <% doc = Nokogiri::HTML(open(checker.url)) %>
+  <tr>
+    <td><%= checker.name %></td>
+    <td><%= checker.site %></td>
+    <td><%= link_to "URL", checker.url, :target => '_blank' %></td>
+    <td><%= checker.item %></td>
+    <th><%= doc.at_css(checker.positive_selector).text if doc.at_css(checker.positive_selector) %></th>
+    <th><%= doc.at_css(checker.negative_selector).text if  doc.at_css(checker.negative_selector).text %></th>
+    <td><%= link_to 'Show', checker %></td>
+    <td><%= link_to 'Edit', edit_checker_path(checker) %></td>
+    <td><%= link_to 'Destroy', checker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Checker', new_checker_path %>
+
+<div id="script_area">
+  <script>
+
+    setInterval(function() {
+      $.ajax({
+        
+          url: '/checkers'
+      })
+    }, 100000);
+
+  </script>
+</div>

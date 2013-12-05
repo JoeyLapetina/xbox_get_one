@@ -1,0 +1,49 @@
+<%= form_for(@checker) do |f| %>
+  <% if @checker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@checker.errors.count, "error") %> prohibited this checker from being saved:</h2>
+
+      <ul>
+      <% @checker.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :site %><br />
+    <%= f.text_field :site %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :item %><br />
+    <%= f.text_field :item %>
+  </div>
+  <div class="field">
+    <%= f.label :positive_selector %><br />
+    <%= f.text_field :positive_selector %>
+  </div>
+  <div class="field">
+    <%= f.label :positive_response %><br />
+    <%= f.text_field :positive_response %>
+  </div>
+  <div class="field">
+    <%= f.label :negative_selector %><br />
+    <%= f.text_field :negative_selector %>
+  </div>
+  <div class="field">
+    <%= f.label :negative_response %><br />
+    <%= f.text_field :negative_response %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
