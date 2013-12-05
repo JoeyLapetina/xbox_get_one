@@ -13,12 +13,12 @@ class CheckersController < ApplicationController
       if doc.at_css(checker.positive_selector)
         doc.at_css(checker.positive_selector).text
         unless old_status == true
-          UserMailer.xbox_is_at(User.first, @checker).deliver
+          UserMailer.xbox_is_at(User.first, checker, Time.now).deliver
           checker.item_status = true
         end
       else
         unless old_status == false
-          UserMailer.xbox_out_at(User.first, checker).deliver
+          UserMailer.xbox_out_at(User.first, checker, Time.now).deliver
           checker.item_status = false
         end
       end
