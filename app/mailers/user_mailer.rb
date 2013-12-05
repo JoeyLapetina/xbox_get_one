@@ -5,13 +5,13 @@ class UserMailer < ActionMailer::Base
     @user = user
     @checker = checker
     @time = time
-    mail(:to => "#{user.name} <#{user.email}>", subject: "There may be an xbox at #{checker.name}")
+    mail(:to => "#{user.name} <#{user.email}>", subject: "There may be an xbox at #{checker.name}: #{@time}")
   end
 
   def xbox_out_at(user, checker, time)
     @user = user
     @checker = checker
     @time = time
-    mail(:to => "#{user.name} <#{user.email}>", subject: "Xboxes are gone from #{checker.name}")
+    mail(:to => "#{user.name} <#{user.email}>", subject: "Xboxes are gone from #{checker.name}: #{@time}")
   end
 end
