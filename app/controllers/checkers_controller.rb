@@ -10,7 +10,7 @@ class CheckersController < ApplicationController
     @checkers.each do |checker|
       old_status = checker.item_status
       doc = Nokogiri::HTML(open(checker.url))
-      if doc.at_css(checker.positive_selector)
+      if doc.at_css(checker.positive_selector).present? == true || doc.at_css(checker.negative_selector).present? == false
         doc.at_css(checker.positive_selector).text
         unless old_status == true
           UserMailer.xbox_is_at(User.first, checker, Time.now).deliver
